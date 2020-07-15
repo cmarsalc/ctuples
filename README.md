@@ -24,3 +24,14 @@ So it can be used with function prototypes like this...
 ```
 void foo(int* buffer, int numElements);
 ```
+Also...
+
+```
+#define CTUPLEAS(astype_, realtype_, ...) (astype_*)(realtype_[]){__VA_ARGS__}, sizeof((realtype_[]){__VA_ARGS__})/sizeof(astype_)
+````
+
+So it can be used like...
+
+```
+foo(CTUPLEAS(int, long, 0xDEADBEEFBABEFACE));
+```
